@@ -1,38 +1,40 @@
 package net.sid.ecommerce.serviceImp;
 
+import net.sid.ecommerce.dao.ICategorieDao;
 import net.sid.ecommerce.entities.Categorie;
 import net.sid.ecommerce.service.ICategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 public class CategorieServiceImp implements ICategorieService {
 
     @Autowired
-    private ICategorieService categorieService;
+    private ICategorieDao categorieDao;
 
     @Override
     public Categorie ajouterCategorie(Categorie categorie) {
-        return categorieService.ajouterCategorie(categorie);
+        return categorieDao.ajouterCategorie(categorie);
     }
 
     @Override
     public List<Categorie> listCategorie() {
-        return categorieService.listCategorie();
+        return categorieDao.listCategorie();
     }
 
     @Override
     public Categorie getCategorie(Long idCategorie) {
-        return categorieService.getCategorie(idCategorie);
+        return categorieDao.getCategorie(idCategorie);
     }
 
     @Override
     public void supprimerCategorie(Long idCategorie) {
-        categorieService.supprimerCategorie(idCategorie);
+        categorieDao.supprimerCategorie(idCategorie);
     }
 
     @Override
     public void modifierCategorie(Categorie categorie) {
-        categorieService.modifierCategorie(categorie);
+        categorieDao.modifierCategorie(categorie);
     }
 }
