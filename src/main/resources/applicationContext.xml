@@ -32,6 +32,24 @@ class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 </bean>
 <tx:annotation-driven transaction-manager="transactionManager"/>
 <context:annotation-config></context:annotation-config>
+	<bean id="dao" class="net.sid.ecommerce.daoImp.CategorieDaoImp"></bean>
+	<bean id="service" class="net.sid.ecommerce.serviceImp.CategorieServiceImp">
+		<property name="dao" ref="dao"></property>
+	</bean>
 
+	<bean id="dao" class="net.sid.ecommerce.daoImp.CommandeDaoImp"></bean>
+	<bean id="service" class="net.sid.ecommerce.serviceImp.CommandeServiceImp">
+		<property name="dao" ref="dao"></property>
+	</bean>
+
+	<bean id="dao" class="net.sid.ecommerce.daoImp.ProduitDaoImp"></bean>
+	<bean id="service" class="net.sid.ecommerce.serviceImp.ProduitServiceImp">
+		<property name="dao" ref="dao"></property>
+	</bean>
+
+	<bean id="dao" class="net.sid.ecommerce.daoImp.UserDaoImp"></bean>
+	<bean id="service" class="net.sid.ecommerce.serviceImp.UserServiceImp">
+		<property name="dao" ref="dao"></property>
+	</bean>
 </beans>
 
